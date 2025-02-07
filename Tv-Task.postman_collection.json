@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "a37e4b99-ff3c-4855-971f-5a6b32991edc",
+		"name": "Tv-Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23156310",
+		"_collection_link": "https://gold-crater-715030.postman.co/workspace/Team-Workspace~fee99265-8132-48a7-825c-a367a4ccda2c/collection/23156310-a37e4b99-ff3c-4855-971f-5a6b32991edc?action=share&source=collection_link&creator=23156310"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "User credentials",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"auth": {
+									"type": "basic"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"Test!23\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh the token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"refresh_token\": \"def50200fdfef571aa166e27ae5d861d2e7bc5b33fe41e241e96130f19692e0d1dfb2ec3e54dcd0a5a208637319539a4fd237cf675f98c8328250d9ca5996572abea5245df66a0b71f10f3bdaba3cee6f111b0695d877e2a46cc3221324749d1060f9a78b7ea237b4036f326a7804deee357ecf9bef6df2b49f40987ffb5c6ad474b563b7b60e3b57198483779792a37fc3e929358e8123fd3cca7a7af857c0413587ddc892ce1cfa4f3cc9f7456241c01d396bc1be1c3d4474f0517dc53d1c75ce643cadc78bbfc5562d4fa51d32a8a2c35b1974c3233cf15fcc1c46c256938957b8418ea6268a1d4cd2648c4afa60da664e07885a81f697c48e7be5357ac01119dac9c8a91b64fb8b75519e0551c5d2e4219302e055686e273f518c76ab024b9b86518fc150e1bc8b9750c231fe86c78e751f19bbbc6786a92ef3c9395c10345dbd4abf244e3c33e9d522a9e153ba2365c584cf4fa79d4091e0407dfc389da78\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/refresh",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Tv code",
+					"item": [
+						{
+							"name": "Code activation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWE1MmU2MmMyZDU2MzU2NmRjODExODFjNDAwYjUyMmEzZmQzZmRjZTVhNTEyYTRmZmI3MTdjNTI5NjhmZmNiMGZiMDI4ZmQ1N2UzZTk1NTAiLCJpYXQiOjE3Mzg5MTk2NzUuOTY3NjgxLCJuYmYiOjE3Mzg5MTk2NzUuOTY3NjgzLCJleHAiOjE3NzA0NTU2NzUuOTY0OTEzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.3ZyqZJx0RKxrokD7f006NU_63BYix4L1ysw9MqBcYBzrVEQhGp2oSMs6fyKIA9JPlz-8CWU5T4ICh9YTRRrQaMIhAFYi3x4WkPiUwwLyY6s5pEejZpBpdInBv7nU0ZGCxkP4eDmTgyQbO8nFgGMsbQi8Ab0jODe_czxsRXVYEwBzB7wwmuAYG2aYmKOzyfW4SjnOm7oZ2j7ISANRS6ZoB2wwkxV7nhn8sMVGm1hN2l85ydygy8wJxVOlLH7WyGwzxXu3UUFkAA2BoaRXtAPrciS89iU-0o-5zNu2XaFxuLIql3bxoST5sKZDKfqvgpb-rqsgAD8ZrQ2OdXP62YtPWgSrPdnCRXQjoA1aOGr1Zm5-CsK1rpZO8IZFMpuo8to2XAW41wZ-_gCo-H4gyjT2a5vFAJGjj2o7S6xBgIscxk25KvpyxDnLhZVJ8Jj3KdTjBmtfIPfjOszEXDbid64qX8e6MKZk_UAg5OOsJlwKVc074jRPn8eWqbRRMlxFFHBjAnavi_znhvfjOp6cFRtTDjnh4LfjosMMCCs-hAFeLYxuDRK3H2WqnCodE6soTFH8WKbIfPPGn0jatgYb22StA8SmcpYFgFI1o9E-6APn0CJ-3B__evFRZMVS6s2VVIVFr8yZP8JTMGWrsSuD1WtgOD1I6IakjWxrMuYlYK1IM0o",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"code\": \"484172\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/active-tv-code",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"active-tv-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Access Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"code\": \"484172\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/poll-tv-code",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"poll-tv-code"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"item": [
+						{
+							"name": "Register new user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Test test\",\n    \"email\": \"test@test.test\",\n    \"password\": \"Test!@#45\",\n    \"password_confirmation\": \"Test!@#45\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Generate Tv code",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWE1MmU2MmMyZDU2MzU2NmRjODExODFjNDAwYjUyMmEzZmQzZmRjZTVhNTEyYTRmZmI3MTdjNTI5NjhmZmNiMGZiMDI4ZmQ1N2UzZTk1NTAiLCJpYXQiOjE3Mzg5MTk2NzUuOTY3NjgxLCJuYmYiOjE3Mzg5MTk2NzUuOTY3NjgzLCJleHAiOjE3NzA0NTU2NzUuOTY0OTEzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.3ZyqZJx0RKxrokD7f006NU_63BYix4L1ysw9MqBcYBzrVEQhGp2oSMs6fyKIA9JPlz-8CWU5T4ICh9YTRRrQaMIhAFYi3x4WkPiUwwLyY6s5pEejZpBpdInBv7nU0ZGCxkP4eDmTgyQbO8nFgGMsbQi8Ab0jODe_czxsRXVYEwBzB7wwmuAYG2aYmKOzyfW4SjnOm7oZ2j7ISANRS6ZoB2wwkxV7nhn8sMVGm1hN2l85ydygy8wJxVOlLH7WyGwzxXu3UUFkAA2BoaRXtAPrciS89iU-0o-5zNu2XaFxuLIql3bxoST5sKZDKfqvgpb-rqsgAD8ZrQ2OdXP62YtPWgSrPdnCRXQjoA1aOGr1Zm5-CsK1rpZO8IZFMpuo8to2XAW41wZ-_gCo-H4gyjT2a5vFAJGjj2o7S6xBgIscxk25KvpyxDnLhZVJ8Jj3KdTjBmtfIPfjOszEXDbid64qX8e6MKZk_UAg5OOsJlwKVc074jRPn8eWqbRRMlxFFHBjAnavi_znhvfjOp6cFRtTDjnh4LfjosMMCCs-hAFeLYxuDRK3H2WqnCodE6soTFH8WKbIfPPGn0jatgYb22StA8SmcpYFgFI1o9E-6APn0CJ-3B__evFRZMVS6s2VVIVFr8yZP8JTMGWrsSuD1WtgOD1I6IakjWxrMuYlYK1IM0o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/generate-tv-code",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"generate-tv-code"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:8000"
+		}
+	]
+}

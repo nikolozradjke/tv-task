@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Controllers\TV;
+
+use App\Http\Controllers\Controller;
+use App\Models\TvCode;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+
+class TvCodeController extends Controller
+{
+    public function __construct(TvCode $tvcode)
+    {
+        $this->response_data['message'] = 'Success';
+        $this->model = $tvcode;
+    }
+
+    public function generateTvAuthCode(Request $request)
+    {
+        $code = $this->model->generateUniqueCode();
+
+        if(
+            !$this->model::updateOrCreate(
+                ['user_id' => $request->user()->id],
+                [
+                    'code' => $code, 
+                    'active' => false,
+                    'expires_at' => Carbon::now()->addMinutes(5)
+                ]
+            )
+        ){
+            $this->error('Something went wrong!', 500);
+        }
+
+        $this->response_data['one_time_code'] = $code;
+
+        return $this->getResponseData();
+    }
+}
