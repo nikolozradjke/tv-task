@@ -7,6 +7,7 @@
     <li>Run seeder for default user (Optional): <strong>php artisan db:seed</strong></li>
     <li>
         <p>Generate passport Keys: <strong>php artisan passport:keys</strong></p>
+        <p>Generate Personal Access client: <strong>php artisan passport:client --personal</strong></p>
         <p>Generate Grant type Client id and Client Secret: <strong>php artisan passport:client --password</strong></p>
         <p>Set them in .env as PASSPORT_CLIENT_ID and PASSPORT_CLIENT_SECRET</p>
     </li>
