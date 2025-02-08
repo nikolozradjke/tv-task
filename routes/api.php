@@ -15,6 +15,6 @@ Route::middleware(['throttle:60,1'])->group(function () {
     Route::post('/poll-tv-code', [TvAuthController::class, 'pollTheCode']);
 
     Route::group(['middleware' => ['auth:api']], function () {
-        Route::post('/generate-tv-code', [TvCodeController::class, 'generateTvAuthCode']);
+        Route::post('/generate-tv-code', TvCodeController::class);
     });
 });

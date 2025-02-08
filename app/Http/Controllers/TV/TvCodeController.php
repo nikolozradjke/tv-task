@@ -9,18 +9,15 @@ use Carbon\Carbon;
 
 class TvCodeController extends Controller
 {
-    public function __construct(TvCode $tvcode)
+    /**
+     * Handle the incoming request.
+     */
+    public function __invoke(Request $request)
     {
-        $this->response_data['message'] = 'Success';
-        $this->model = $tvcode;
-    }
-
-    public function generateTvAuthCode(Request $request)
-    {
-        $code = $this->model->generateUniqueCode();
+        $code = TvCode::generateUniqueCode();
 
         if(
-            !$this->model::updateOrCreate(
+            !TvCode::updateOrCreate(
                 ['user_id' => $request->user()->id],
                 [
                     'code' => $code, 
@@ -31,7 +28,8 @@ class TvCodeController extends Controller
         ){
             $this->error('Something went wrong!', 500);
         }
-
+        
+        $this->response_data['message'] = 'Success';
         $this->response_data['one_time_code'] = $code;
 
         return $this->getResponseData();

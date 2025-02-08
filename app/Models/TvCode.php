@@ -18,12 +18,12 @@ class TvCode extends Model
         'expires_at'
     ];
 
-    public function generateUniqueCode()
+    public static function generateUniqueCode()
     {
         do {
             $randomDigits = random_int(100000, 999999);
 
-            $exists = $this->where('code', $randomDigits)->exists();
+            $exists = self::where('code', $randomDigits)->exists();
         } while ($exists);
 
         return $randomDigits;

@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Services\UserAuthTokenService;
 
-class UserTokenProvider extends ServiceProvider
+class UserTokenServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
