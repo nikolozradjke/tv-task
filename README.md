@@ -1,7 +1,7 @@
 <ul>
     <li>Install dependencies: <strong>composer install</strong></li>
-    <li>Generate .env manually ro run: <strong>cp .env.example .env</strong></li>
-    <li>Generates a new application key: <strong>php artisan key:generate</strong></li>
+    <li>Generate .env manually or run: <strong>cp .env.example .env</strong></li>
+    <li>Generate a new application key: <strong>php artisan key:generate</strong></li>
     <li>Generate sqllite db file in /database directory: <strong>touch {project_directory}/database/database.sqlite</strong></li>
     <li>Run migration: <strong>php artisan migrate:fresh</strong></li>
     <li>Run seeder for default user (Optional): <strong>php artisan db:seed</strong></li>
