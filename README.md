@@ -6,8 +6,9 @@
     <li>Run migration: <strong>php artisan migrate:fresh</strong></li>
     <li>Run seeder for default user (Optional): <strong>php artisan db:seed</strong></li>
     <li>
-        <p>Generate passport migrations and assets: <strong>php artisan passport:install</strong></p>
-        <p>It will generate grant type Client Id and Client Secret, Set them in .env as PASSPORT_CLIENT_ID and PASSPORT_CLIENT_SECRET</p>
+        <p>Generate passport Keys: <strong>php artisan passport:keys</strong></p>
+        <p>Generate Grant type Client id and Client Secret: <strong>php artisan passport:client --password</strong></p>
+        <p>Set them in .env as PASSPORT_CLIENT_ID and PASSPORT_CLIENT_SECRET</p>
     </li>
 </ul>
 
